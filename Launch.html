@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Instance</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #3E35BC, #6757DE);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #23272A;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 500px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            font-size: 16px;
+            outline: none;
+            resize: none;
+        }
+        textarea:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Launch Instance</h1>
+        <form action="http://127.0.0.1:5000/launch" method="POST">
+            <textarea id="instance-type" name="instance_type" rows="2" placeholder="Instance Type" required></textarea>
+            <textarea id="instance-id" name="instance_id" rows="2" placeholder="Instance ID" required></textarea>
+            <textarea id="regional-name" name="regional_name" rows="2" placeholder="Regional Name" required></textarea>
+            <textarea id="access-key" name="access_key" rows="2" placeholder="Access Key" required></textarea>
+            <textarea id="secret-key" name="secret_key" rows="2" placeholder="Secret Key" required></textarea>
+            <button type="submit">Launch</button>
+        </form>
+    </div>
+</body>
+</html>

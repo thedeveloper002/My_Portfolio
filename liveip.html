@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live IP Camera Stream</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #434343, #000000);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: black;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-radius: 20px;
+        }
+
+        h1 {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        #toggleStream {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        #toggleStream:hover {
+            background-color: #ff3e2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Live IP Camera Stream</h1>
+        <iframe id="cameraStream" src=""></iframe>
+        <button id="toggleStream">Stop Stream</button>
+    </div>
+
+    <script>
+        const cameraStream = document.getElementById('cameraStream');
+        const toggleStreamButton = document.getElementById('toggleStream');
+        let streamActive = true;
+
+        const ipWebcamURL = 'http://100.96.144.78:8080/video';  // Replace with your IP Webcam URL
+
+        // Load the stream
+        cameraStream.src = ipWebcamURL;
+
+        // Toggle the stream on/off
+        toggleStreamButton.addEventListener('click', () => {
+            if (streamActive) {
+                cameraStream.src = '';  // Stop the stream
+                toggleStreamButton.textContent = 'Start Stream';
+            } else {
+                cameraStream.src = ipWebcamURL;  // Start the stream again
+                toggleStreamButton.textContent = 'Stop Stream';
+            }
+            streamActive = !streamActive;
+        });
+    </script>
+</body>
+</html>

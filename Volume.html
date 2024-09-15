@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Laptop Volume</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #3E35BC, #6757DE);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #23272A;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        input[type="range"] {
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        .volume-display {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007BFF;
+        }
+
+        .volume-control {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #volumeSlider {
+            width: 80%;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Control Laptop Volume</h1>
+        <input type="range" id="volumeSlider" name="volume" min="0" max="100" value="50" oninput="updateVolume()">
+        <div class="volume-display">Current Volume: <span id="volumeValue">50%</span></div>
+    </div>
+
+    <script>
+        function updateVolume() {
+            const slider = document.getElementById('volumeSlider');
+            const volumeValue = document.getElementById('volumeValue');
+            volumeValue.textContent = slider.value + '%';
+
+            // Send the volume data to the server using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://127.0.0.1:5000/set-volume', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('volume=' + slider.value);
+        }
+    </script>
+</body>
+
+</html>

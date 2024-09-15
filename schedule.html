@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Scheduler</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #3E35BC, #6757DE);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #23272A;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        input, textarea, select {
+            width: 550px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Schedule Email</h1>
+        <form id="email-form">
+            <input type="email" id="sender_email" name="sender_email" placeholder="Sender's Email" required>
+            <input type="password" id="sender_password" name="sender_password" placeholder="Sender's Password" required>
+            <input type="email" id="recipient_email" name="recipient_email" placeholder="Recipient's Email" required>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <textarea id="body" name="body" rows="4" placeholder="Body" required></textarea>
+            <select id="schedule_day" name="schedule_day" required>
+                <option value="">Select Day</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+            </select>
+            <input type="text" id="schedule_time" name="schedule_time" placeholder="Select Time" required>
+            <button type="button" onclick="scheduleEmail()">Schedule Email</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#schedule_time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+
+        function scheduleEmail() {
+            var senderEmail = document.getElementById('sender_email').value;
+            var senderPassword = document.getElementById('sender_password').value;
+            var recipientEmail = document.getElementById('recipient_email').value;
+            var subject = document.getElementById('subject').value;
+            var body = document.getElementById('body').value;
+            var scheduleDay = document.getElementById('schedule_day').value;
+            var scheduleTime = document.getElementById('schedule_time').value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://127.0.0.1:5000/schedule_email', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var result = document.getElementById('result');
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        result.textContent = response.message;
+                        result.style.color = 'green';
+                    } else {
+                        var response = JSON.parse(xhr.responseText);
+                        result.textContent = 'Error: ' + response.error;
+                        result.style.color = 'red';
+                    }
+                }
+            };
+
+            var data = JSON.stringify({
+                sender_email: senderEmail,
+                sender_password: senderPassword,
+                recipient_email: recipientEmail,
+                subject: subject,
+                body: body,
+                schedule_day: scheduleDay,
+                schedule_time: scheduleTime
+            });
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>

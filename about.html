@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+header {
+    width: 1445px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #000000;
+    height: 40px;
+}
+
+header h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    margin-top: 13px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+header nav a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding-left: 15px;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000000;
+}
+
+.about-title {
+    font-size: 40px;
+    color: #007BFF;
+}
+
+.about-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.about-item {
+    background-color: #292b36;
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 20px;
+    max-width: 600px;
+    text-align: center ;
+    border: 2px solid #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+    transition: background-color 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+}
+
+.about-item:hover {
+   
+    transform: scale(1.05);
+}
+
+.email {
+    color: #007BFF;
+   
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    margin-top: 90px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="https://www.linkedin.com/in/prem-suthar-088031316/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/your-profile" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+           
+        </nav>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-section">
+        <h1 class="about-title">About Me</h1>
+        <div class="about-grid">
+            <div class="about-item">
+                <p>I'm Prem, the Co-Founder and COO of Promice, a platform dedicated to integrating all social media platforms into one cohesive experience. My work is driven by a passion for technology, with a particular focus on DevOps and cybersecurity.</p>
+                <p>I bring a diverse set of skills to my projects, including expertise in Linux, Python, machine learning, AWS, Kubernetes, Docker, Jenkins, GitHub, HTML, CSS, JavaScript, Flutter Flow, and Figma. These tools allow me to develop robust and scalable solutions, ensuring both performance and security are top priorities.</p>
+                <p>If I can help you in any way, feel free to reach out anytime—I'm happy to support and connect.</p>
+                <p>Email: <a class="email" href="mailto:premsuthar0002@gmail.com">premsuthar0002@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://github.com/">GitHub</a>
+        <a href="https://www.linkedin.com/in/prem-suthar-088031316/">LinkedIn</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

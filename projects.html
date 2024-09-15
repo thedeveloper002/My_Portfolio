@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+header {
+    width: 1445px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color:  #000000;
+    height: 40px;
+}/* General Styles */
+
+header h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    margin-top: 13px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+header nav a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding-left: 15px;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+
+
+
+.content {
+    text-align: start;
+    margin-top: 190px;
+    padding-left: 120px;
+}
+
+/* Project Grid */
+#projects {
+    text-align: center;
+    padding: 50px 0;
+    size: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-grid button {
+    background-color: #292b36;
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+  
+
+
+/* Footer */
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    margin-top: 110px;
+}
+
+footer a {
+    color: #007BFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+.project-grid button {
+    background-color: #292b36;
+    border: 2px solid #007BFF;
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.5s ease, opacity 0.5s ease;
+   
+    opacity: 1;
+}
+
+.project-grid button:hover {
+    background-color: #007BFF;
+    transform: scale(1.1);
+}
+
+.premsuthar{
+    color: whitesmoke;
+}
+
+.projects {
+    font-size: 40px;
+    color: #007BFF;
+}
+
+.pop{
+    border-color: #007BFF;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+
+.prem {
+    color: #007BFF;
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio </h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="https://www.linkedin.com/in/prem-suthar-088031316/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/your-profile" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </nav>
+    </header>
+
+<section id="projects">
+    <h1 class="projects">Projects</h1>
+    <div class="project-grid">
+        <a href="geo.html"><button class="pop"><i class="fas fa-map-marker-alt"></i><br> Geo Coordinates</button></a>
+        <a href="Email.html"><button class="pop"><i class="fas fa-envelope"></i><br> Send Emails</button></a>
+        <a href="Bulkemail.html"><button class="pop"><i class="fas fa-mail-bulk"></i><br> Send Bulk Emails</button></a>
+        <a href="Menuscraper.html"><button class="pop"><i class="fas fa-search"></i><br> Google Search</button></a>
+        <a href="texttospeec.html"><button class="pop"><i class="fas fa-microphone-alt"></i><br> Text To Speech</button></a>
+        <a href="schedule.html"><button class="pop"><i class="fas fa-calendar-alt"></i><br> Schedule Email</button></a>
+        <a href="sms.html"><button class="pop"><i class="fas fa-sms"></i><br> SMS using Twilio</button></a>
+        <button class="pop"><i class="fas fa-camera"></i><br> Open Camera and apply filter</button></a>
+        <a href="getlocation.html"><button class="pop"><i class="fas fa-map-marker"></i><br> Geo location</button></a></a>
+        <button class="pop"><i class="fas fa-glasses"></i><br> Open Camera with Sunglasses</button></a>
+        <button class="pop"><i class="fab fa-docker"></i><br> Docker Management System</button></a>
+        <a href="s3.html"><button class="pop"><i class="fas fa-upload"></i><br> Upload on S3</button></a>
+        <button class="pop"><i class="fas fa-video"></i><br> Video Capture using JS</button></a>
+        <a href="livevideojava.html"><button class="pop"><i class="fas fa-video"></i><br> Live Video using JS</button></a>
+        <a href="texttospeechjava.html"><button class="pop"><i class="fas fa-microphone"></i><br> Text to Speech using JS</button></a>
+        <a href="javaphoto.html"><button class="pop"><i class="fas fa-camera-retro"></i><br> Photo Capture using JS</button></a>
+        <button class="pop"><i class="fas fa-chart-bar"></i><br> Check ML Accuracy</button>
+        <a href="Launch.html"><button class="pop"><i class="fas fa-cloud"></i><br> Launch EC2 Instance</button></a>
+        <button class="pop"><i class="fas fa-terminal"></i><br> Linux Terminal</button>
+        <a href="BMI.html"><button class="pop"><i class="fas fa-calculator"></i><br> BMI Calculator</button></a>
+        <!-- New Projects -->
+        <button class="pop"><i class="fas fa-file-alt"></i><br> Access Log from Cloud</button>
+        <button class="pop"><i class="fas fa-desktop"></i><br> RHEL GUI Instance in Cloud</button>
+        <button class="pop"><i class="fas fa-chart-pie"></i><br> Docker Statistics</button>
+    </div>
+</section>
+
+<footer>
+    <a href="https://github.com/">GitHub</a>
+    <a href="https://www.linkedin.com/in/prem-suthar-088031316/">LinkedIn</a>
+</footer>
+    
+<script src="script.js"></script>
+</body>
+</html>
